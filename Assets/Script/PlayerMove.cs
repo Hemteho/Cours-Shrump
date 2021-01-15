@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-
+    public int LifeCount;
 
     void Update()
     {
@@ -15,4 +15,13 @@ public class PlayerMove : MonoBehaviour
         transform.position = newPos;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Bullet")
+        {
+
+            LifeCount = -1;
+
+        }
+    }
 }

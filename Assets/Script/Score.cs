@@ -10,6 +10,7 @@ public class Score : MonoBehaviour
 
     private int Bonus;
 
+    public GameObject Berserk;
     private Text scoreText;
     public Slider Weapon;
 
@@ -39,7 +40,7 @@ public class Score : MonoBehaviour
         Player1 = GameObject.Find("Player1");
         Player2 = GameObject.Find("Player2");
 
-        scoreText.text = "SCORE: " + EffectivScore.ToString("000000000");
+        scoreText.text = "SCORE: " + EffectivScore.ToString("00000000");
 
         if (Score.ScoreAmount < 1)
         {
@@ -67,7 +68,11 @@ public class Score : MonoBehaviour
                 GunBonus1.SetActive(true);
                 BaseGun1.SetActive(false);
             }
+
             Bonus = 6;
+
+            Berserk.SetActive(true);
+
         }
         else if (Score.ScoreAmount < 250)
         {
@@ -85,6 +90,8 @@ public class Score : MonoBehaviour
             }
 
             Bonus = 4;
+
+            Berserk.SetActive(false);
         }
     }
 } 
